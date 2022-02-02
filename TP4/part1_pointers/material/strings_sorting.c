@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int my_strcmp(char * str1, char * str2);
 void sort_string_array(char ** tab, int nb_of_elements);
@@ -79,7 +80,7 @@ int main(int argc, char *argv[])
 int my_strcmp(char * str1, char * str2)
 {
   int i = 0;
-  while(i < (sizeof str1) -1 && i< (sizeof str2)-1 ){
+  while(i < strlen(str1) && i< strlen(str2)){
     if(str1[i] > str2[i]){
       return +1;
     } 
@@ -97,10 +98,10 @@ void sort_string_array(char ** tab, int nb_of_elements)
   char * a;
 
   for(int i = 0; i< n; i++){
-    for (int k = i; k > 0 && my_strcmp(tab[k], tab[k-1])==-1; k--){
+    for (int k = i; (k > 0) && (my_strcmp(tab[k], tab[k-1])==-1); k--){
         a = tab[k];
-        tab[k]=tab[k+1];
-        tab[k+1]=a;
+        tab[k]=tab[k-1];
+        tab[k-1]=a;
     }
   }
 }
