@@ -51,7 +51,9 @@ int main(int argc, char*argv[]) {
   Student_t students_array [160];
   read_file_content(students_array, f);
 
-  // visualize the content of students_array using printf
+  for(int i=0; i<number_of_students; i++){
+    printf("student number %d / first name : %s / last namme : %s\n", students_array[i].group, students_array[i].firstname, students_array[i].lastname);
+  }
 
   // create a linked list from the array of students
   int i;
@@ -132,9 +134,15 @@ int main(int argc, char*argv[]) {
 
 void read_file_content(Student_t * array, FILE * file){
 
-  /* TODO: implement this function */
-  printf("read_file_content: Not Implemented Yet\n");
-  exit(-1);
+    int ret_lec = fscanf(file, "%s %s %d", array[0].lastname, array[0].firstname, &array[0].group);
+    int i=1;
+
+    while(ret_lec != EOF){
+      ret_lec = fscanf(file, "%s %s %d", array[i].lastname, array[i].firstname, &array[i].group);
+      i++;
+    }
+
+    number_of_students=i;
 
 }
 
@@ -145,9 +153,9 @@ void read_file_content(Student_t * array, FILE * file){
 Link_t * new_link(Student_t student){
   Link_t *Ptr;
 
-  /* TODO: implement this function */
-  printf("new_link: Not Implemented Yet\n");
-  exit(-1);
+  Ptr = (Link_t *) malloc(sizeof(Link_t));
+
+  &Ptr->student=student;
 
   return Ptr;
 }
