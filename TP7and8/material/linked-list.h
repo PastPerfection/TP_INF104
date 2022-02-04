@@ -2,6 +2,8 @@
 #define _LINKED_LIST_HEADER_
 
 #include "link-types.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 Link_t * new_link(Student_t student);
 Link_t * chain(Link_t * beginning, Link_t * new_link);

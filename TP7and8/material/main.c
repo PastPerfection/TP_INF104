@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "link-types.h"
-#include "linked-list.c"
+#include "linked-list.h"
 
 
 /*************   global variables   ****************/

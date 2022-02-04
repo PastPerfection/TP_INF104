@@ -3,6 +3,10 @@
 
 #include "linked-list.h"
 #include "link-types.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 /********************   read_file_content   ********************
 * read file and extract information to store it in array
