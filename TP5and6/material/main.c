@@ -155,7 +155,8 @@ Link_t * new_link(Student_t student){
 
   Ptr = (Link_t *) malloc(sizeof(Link_t));
 
-  &Ptr->student=student;
+  Ptr->student=student;
+  Ptr->next=NULL;
 
   return Ptr;
 }
@@ -168,9 +169,8 @@ Link_t * new_link(Student_t student){
 Link_t * chain(Link_t * beginning, Link_t * new_link){
   Link_t *Ptr;
 
-  /* TODO: implement this function */
-  printf("chain: Not Implemented Yet\n");
-  exit(-1);
+  Ptr = new_link;
+  Ptr->next=beginning;
 
   return Ptr;
 }
@@ -180,11 +180,15 @@ Link_t * chain(Link_t * beginning, Link_t * new_link){
 * linked list.
 ********************************************************/
 void display_linked_list(Link_t * list){
-
-  /* TODO: implement this function */
-  printf("display_linked_list: Not Implemented Yet\n");
-  exit(-1);
-
+  Link_t * Ptr = list;
+  int i=0;
+  while (Ptr != NULL){
+    printf ("Name %s, firstname %s, group %d, (index %d), adress of next link : (0x)%p\n",
+        Ptr->student.lastname, Ptr->student.firstname, Ptr->student.group,
+         i, (int *)Ptr->next);
+    Ptr=Ptr->next;
+    i = i+1;
+  }
 }
 
 /********************   search   *******************
